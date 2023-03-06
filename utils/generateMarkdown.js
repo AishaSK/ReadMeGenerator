@@ -1,21 +1,21 @@
-// function to generate markdown for README
 
+// license from Github to the README
 const renderLicenseBadge = (license) => {
-  if (license !== "None") {
-  return `![License](https://img.shields.io/badge/License-${license}-blue.svg`
-}
-return ``
+  if(license !== "None"){
+    return `![Github license](https://img.shields.io/badge/license-$(license)-blue.svg)`
+  }
+  return ''
 }
 
 const renderLicenseLink = (license) => {
-if (license !== "None") {
-  return `\n* [License](#license)\n`
-}
-return``;
+  if(license !== "None") {
+    return `* [License](#license)\n`
+  }
+  return '';
 }
 
+// generate markdown for README
 function generateMarkdown(data) {
-  console.log(data);
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
 
@@ -24,49 +24,53 @@ function generateMarkdown(data) {
   ${data.description}
 
   ### Table of Contents
-  *[Installation instructions](#Installation instructions)
 
-  *[Usage information](#Usage information)
+  * [Installation instructions](#installation instructions )
 
+  * [Usage Information](#usage information)
 
   ${renderLicenseLink(data.license)}
 
-* [Contributing](#Contributing)
+  * [Contributing](#contributing)
 
-* [Tests](#Tests)
+  * [Test](#tests)
 
-* [Questions](#Questions)
+  * [Questions](#questions)
 
+  ## Installation
 
-## Installation 
-To install necessary dependencies, run the following command:
-\`\`\`
-${data.installation}
-\`\`\`
+  To install necessary dependencies, run the following command: 
 
-## Usage 
+  \`\`\`
+  ${data.installation}
+  \`\`\`
 
-${data.usage}
+  ## Usage
 
-## License 
+  ${data.usage}
 
-this project licensed under the ${data.license} license.
+  ## License 
 
-## Contributing
+  This project is licensed under the ${data.license} license
 
-${data.contributing}
+  ## Contributing
 
-## Tests
+  ${data.contributing}
 
-To run tests run the following command:
-\`\`\`
-${data.test}
-\`\`\`
+  ## Tests
 
-###  Questions
-If you have any questions about the repo, open an issue or contact me directly at ${data.email}.
+  To run tests:
 
-You can find more of my work at [${data.github}](https://github.com/${data.github}).
+  \`\`\`
+  ${data.test}
+  \`\`\`
+
+  ## Questions
+
+  If you have any questions about the repo, open an issue or directly contact me at ${data.email}.
+
+  You can find more of my work at [${data.github}](https://github.com/${data.github}).
+
 `;
 }
 
